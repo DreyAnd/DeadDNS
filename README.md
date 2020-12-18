@@ -12,7 +12,7 @@ Tool is based on the *dig* command and it works by:
 
 Simple and quick installation:
 ```
-$ git clone https://github.com/DreyAnd/DeadDNS
+$ git clone https://github.com/DreyAnd/DeadDNS.git
 $ cd DeadDNS
 $ pip3 install -r requirements.txt
 $ python3 dead_records.py -h
