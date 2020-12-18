@@ -8,6 +8,9 @@ Tool is based on the *dig* command and it works by:
 3) Show which dead record points to the given CNAME.
 ```
 
+![](https://gifs.com/gif/deaddns-jZoEJB)
+
+
 ## Installation:
 
 Simple and quick installation:
