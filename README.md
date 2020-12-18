@@ -34,4 +34,4 @@ $ python3 dead_records.py -w subdomains.txt -o1 found-dead.txt -o2 found-cnames.
 ## TO DO:
 
 Make the script run faster :( 
-(*multithreading here we go*)
+*multithreading here we go*
