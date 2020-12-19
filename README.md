@@ -10,31 +10,33 @@ Tool is based on the *dig* command and it works by:
 
 ![](https://j.gifs.com/jZoEJB.gif)
 
+## Features
+- Multithreading
+- Completely Automated
+- Takes list from file
 
 ## Installation:
+One line installation
+```
+$ git clone https://github.com/DreyAnd/DeadDNS.git && cd DeadDNS && pip3 install -r requirements.txt
+```
 
 Simple and quick installation:
 ```
 $ git clone https://github.com/DreyAnd/DeadDNS.git
 $ cd DeadDNS
 $ pip3 install -r requirements.txt
-$ python3 dead_records.py -h
 ```
 
 ## Usage:
 
+Example usage:
 ```
-$ python3 dead_records.py -w subdomains.txt
+$ python3 dead_records.py -w subdomains.txt -o1 dead.txt -o2 cname.txt
 ```
+
 This will return all output to stdout without saving it.
 
-To save all output:
+Help: `$ python3 dead_records.py -h`
 
-```
-$ python3 dead_records.py -w subdomains.txt -o1 found-dead.txt -o2 found-cnames.txt
-```
-
-## TO DO:
-
-Make the script run faster :( 
-*multithreading here we go*
+To check progess do `tail -f dead-temp.txt` and `tail -f cname-temp.txt`
