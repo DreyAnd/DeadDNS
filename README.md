@@ -1,5 +1,5 @@
 # DeadDNS
-Multi-threaded **DNS hijacking** via **dead records** automation tool
+ Multi-threaded **DNS hijacking** via **dead records** automation tool
 
 ## How it works
 ```
