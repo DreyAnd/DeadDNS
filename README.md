@@ -1,7 +1,7 @@
 # DeadDNS
-**DNS hijacking** via **dead records** automation tool
+ Multi-threaded **DNS hijacking** via **dead records** automation tool
 
-Tool is based on the *dig* command and it works by:
+## How it works
 ```
 1) Dig provided subdomains file for dead DNS records.
 2) Dig the found dead DNS records for any interesting CNAME's. 
@@ -10,31 +10,35 @@ Tool is based on the *dig* command and it works by:
 
 ![](https://j.gifs.com/jZoEJB.gif)
 
+## Features
+- Multi-threading
+- Completely Automated
+- Takes list from file
 
 ## Installation:
+One line installation:
+```
+$ git clone https://github.com/DreyAnd/DeadDNS.git && cd DeadDNS && pip3 install -r requirements.txt
+```
 
 Simple and quick installation:
 ```
 $ git clone https://github.com/DreyAnd/DeadDNS.git
 $ cd DeadDNS
 $ pip3 install -r requirements.txt
-$ python3 dead_records.py -h
 ```
 
 ## Usage:
 
+Example usage:
 ```
-$ python3 dead_records.py -w subdomains.txt
+$ python3 dead_records.py -w subdomains.txt -o1 dead.txt -o2 cname.txt
 ```
+
 This will return all output to stdout without saving it.
 
-To save all output:
+Help: `$ python3 dead_records.py -h`
 
-```
-$ python3 dead_records.py -w subdomains.txt -o1 found-dead.txt -o2 found-cnames.txt
-```
+To check progess do `tail -f dead-temp.txt` and `tail -f cname-temp.txt`
 
-## TO DO:
-
-Make the script run faster :( 
-*multithreading here we go*
+## Made with :heart: by [DreyAnd](https://github.com/DreyAnd) and [inc0gnit0](https://github.com/iinc0gnit0)
