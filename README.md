@@ -41,4 +41,4 @@ Help: `$ python3 dead_records.py -h`
 
 To check progess do `tail -f dead-temp.txt` and `tail -f cname-temp.txt`
 
-Made with :heart: by [DreyAnd](https://github.com/DreyAnd) and [inc0gnit0](https://github.com/iinc0gnit0)
+## Made with :heart: by [DreyAnd](https://github.com/DreyAnd) and [inc0gnit0](https://github.com/iinc0gnit0)
