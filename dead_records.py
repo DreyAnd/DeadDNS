@@ -35,14 +35,20 @@ def banner():
 # Check args
 def args():
     global subdomains_file
+    global threads
     parser = argparse.ArgumentParser()
     print("Usage example: python3 dead_records.py -w subdomains.txt -o1 dead.txt -o2 cname.txt\n")
     parser.add_argument('-w', help='path to the list of subdomain file (required)', required=True)
     parser.add_argument('-o1', help='found dead records output (required)', required=True)
     parser.add_argument('-o2', help="found CNAME's from dead records output (required)", required=True)
+    parser.add_argument('-t', help='specify threads to be used (default: 2)', required=False, dest='threads')
     args = parser.parse_args()
 
     subdomains_file = open(sys.argv[2], "r").readlines()
+    if args.threads == None:
+        threads = 2
+    else:
+        threads = int(args.threads.rstrip())
 
 # filter_dns
 def filter_dns(wordz):
@@ -148,23 +154,9 @@ def writeTemp():
     os.remove("cname-temp.txt")
 
 def multithread():
-    executor = ThreadPoolExecutor(5)
+    executor = ThreadPoolExecutor(threads)
     future = executor.submit(dead_check, subdomains_file)
     print(future.result())
-
-def output():
-    if len(sys.argv) > 4:
-        o1 = sys.argv[4]
-        found_dead = open(o1, "w")
-        found_dead.write(str(multithread()))
-
-    os.remove("dead-temp.txt")
-
-    cprint("\033[96m\033[4mCHECKING FOR CNAME's: \n\033[0m", attrs=['blink'])
-
-    dead = show_dead.split("\n")
-    dead.pop()
-    CNAME_check(dead)
 
 def info():
     print("\033[1m\033[95m\033[4mSEARCHING FOR DEAD DNS RECORDS: \033[00m\n")
