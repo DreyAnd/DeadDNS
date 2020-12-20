@@ -143,7 +143,6 @@ def writeTemp():
 def multithread():
     executor = ThreadPoolExecutor(5)
     future = executor.submit(dead_check, subdomains_file)
-    #print(future.result())
     print(future.result())
 
 def output():
@@ -175,5 +174,5 @@ try:
     if __name__ == "__main__":
         main()
 except KeyboardInterrupt:
-    print("\033[91mCtrl+C detected.\n Exitting..\033[0m")
+    print("\033[91mCtrl+C detected.\n Exiting..\033[0m")
     sys.exit(1)
