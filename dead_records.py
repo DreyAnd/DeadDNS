@@ -171,4 +171,9 @@ def main():
     output()
     writeTemp()
 
-main()
+try:
+    if __name__ == "__main__":
+        main()
+except KeyboardInterrupt:
+    print("\033[91mCtrl+C detected.\n Exitting..\033[0m")
+    sys.exit(1)
