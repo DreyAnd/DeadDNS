@@ -32,13 +32,15 @@ $ pip3 install -r requirements.txt
 
 Example usage:
 ```
-$ python3 dead_records.py -w subdomains.txt -o1 dead.txt -o2 cname.txt
+$ python3 dead_records.py -w subdomains.txt -o1 dead.txt -o2 cname.txt -t 2
 ```
-
 This will return all output to stdout without saving it.
 
 Help: `$ python3 dead_records.py -h`
 
 To check progess do `tail -f dead-temp.txt` and `tail -f cname-temp.txt`
+
+##Current version:
+1.2
 
 ## Made with :heart: by [DreyAnd](https://github.com/DreyAnd) and [inc0gnit0](https://github.com/iinc0gnit0)
