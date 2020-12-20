@@ -108,6 +108,13 @@ def CNAME_check(deadz):
                     write_cname = open("cname-temp.txt", "a+")
                     cnamez = str(d) + " --> " + check.decode() + "\n"
                     write_cname.write(cnamez)
+
+                exist_check = pathlib.Path("cname-temp.txt")
+            if exist_check.exists() == True:
+                pass
+            else:
+                print("\033[91mNO CNAME'S FOUND :(")
+                sys.exit(1)
         except KeyboardInterrupt:
             os.remove("cname-temp.txt")
             sys.exit(1)
