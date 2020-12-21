@@ -62,7 +62,7 @@ def filter_dns(wordz):
 
     return formatted
 
-# Find dead dns
+# Find dead dns records
 def dead_check(subz):
     global show_dead
     try:
@@ -115,7 +115,7 @@ def CNAME_check(deadz):
                     cnamez = str(d) + " --> " + check.decode() + "\n"
                     write_cname.write(cnamez)
 
-                exist_check = pathlib.Path("cname-temp.txt")
+            exist_check = pathlib.Path("cname-temp.txt")
             if exist_check.exists() == True:
                 pass
             else:
