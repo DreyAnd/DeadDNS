@@ -8,7 +8,7 @@
 3) Show which dead record points to the given CNAME.
 ```
 
-![](https://j.gifs.com/jZoEJB.gif)
+![](https://j.gifs.com/ANvnK3.gif)
 
 ## Features
 - Multi-threading
