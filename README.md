@@ -51,6 +51,6 @@ To check progess do `tail -f dead-temp.txt` and `tail -f cname-temp.txt`
 
 > Fixed bugs
 
-> Choose number of threads
+> Custom number of threads
 
 ## Made with :heart: by [DreyAnd](https://github.com/DreyAnd) and [inc0gnit0](https://github.com/iinc0gnit0)
