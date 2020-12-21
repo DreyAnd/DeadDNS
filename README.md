@@ -8,7 +8,7 @@
 3) Show which dead record points to the given CNAME.
 ```
 
-![](https://j.gifs.com/jZoEJB.gif)
+![](https://j.gifs.com/ANvnK3.gif)
 
 ## Features
 - Multi-threading
@@ -41,6 +41,16 @@ Help: `$ python3 dead_records.py -h`
 To check progess do `tail -f dead-temp.txt` and `tail -f cname-temp.txt`
 
 ## Current version:
-1.2
+### **1.2**
+
+## What's new?
+
+> Better UI
+
+> Concurrent multithreading
+
+> Fixed bugs
+
+> Custom number of threads
 
 ## Made with :heart: by [DreyAnd](https://github.com/DreyAnd) and [inc0gnit0](https://github.com/iinc0gnit0)
