@@ -62,73 +62,6 @@ def filter_dns(wordz):
 
     return formatted
 
-<<<<<<< HEAD
-# Find dead dns records
-def dead_check(subz):
-    global show_dead
-    try:
-        for s in subz:
-            cmd = "host " + s
-            p = p = subprocess.Popen([cmd], stdout=subprocess.PIPE, shell=True)
-            dead = p.stdout.read()
-
-            if "not found" in str(dead):
-                dead_temp = open("dead-temp.txt", "a+")
-                dead_temp.write(str(dead))
-            else:
-                continue
-
-        exist_check = pathlib.Path("dead-temp.txt")
-        if exist_check.exists() == True:
-            pass
-        else:
-            print("\033[91mNO DEAD RECORDS FOUND :(")
-            sys.exit(1)
-
-        cprint("\033[96m\033[4mFOUND DEAD RECORDS:\n\033[0m", attrs=['blink'])
-
-        read_dead = open("dead-temp.txt", "r").readlines()
-        show_dead = filter_dns(read_dead)
-        print("\033[93m")
-
-        return show_dead
-
-    except KeyboardInterrupt:
-        os.remove("dead-temp.txt")
-        sys.exit(1)
-
-
-# Make temp file
-def CNAME_check(deadz):
-    try:
-        try:
-            for d in deadz:
-                cmd = "dig CNAME +short " + d
-                p = subprocess.Popen([cmd], stdout=subprocess.PIPE, shell=True)
-                check = p.stdout.read()
-
-                if len(check) == 0:
-                    print("\033[91m" + str(d), " --> \033[0m")
-
-                else:
-                    print("\033[92m\033[4m" + str(d) + "\033[0m" +  " --> " + "\033[92m\033[4m" + check.decode() + "\033[0m")
-                    write_cname = open("cname-temp.txt", "a+")
-                    cnamez = str(d) + " --> " + check.decode() + "\n"
-                    write_cname.write(cnamez)
-
-            exist_check = pathlib.Path("cname-temp.txt")
-            if exist_check.exists() == True:
-                pass
-            else:
-                print("\033[91mNO CNAME'S FOUND :(")
-                sys.exit(1)
-        except KeyboardInterrupt:
-            os.remove("cname-temp.txt")
-            sys.exit(1)
-
-    except KeyboardInterrupt:
-        os.remove("cname-temp.txt")
-=======
 # Find dead dns
 def dead_check(subz):
     global show_dead
@@ -179,7 +112,6 @@ def CNAME_check(deadz):
         pass
     else:
         print("\033[91mNO CNAME'S FOUND :(")
->>>>>>> dev
         sys.exit(1)
 
 def output():
@@ -227,9 +159,6 @@ try:
         main()
 except KeyboardInterrupt:
     print("\033[91mCtrl+C detected.\n Exiting..\033[0m")
-<<<<<<< HEAD
-=======
     os.remove("cname-temp.txt")
     os.remove("dead-temp.txt")
->>>>>>> dev
     sys.exit(1)
