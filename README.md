@@ -38,7 +38,7 @@ This will return all output to stdout without saving it.
 
 Help: `$ python3 dead_records.py -h`
 
-To check progess do `tail -f dead-temp.txt` and `tail -f cname-temp.txt`
+To check progress do `tail -f dead-temp.txt` and `tail -f cname-temp.txt`
 
 ## Current version:
 ### **1.2**
