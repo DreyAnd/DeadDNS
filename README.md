@@ -8,11 +8,7 @@
 3) Show which dead record points to the given CNAME.
 ```
 
-<<<<<<< HEAD
-![](https://j.gifs.com/ANvnK3.gif)
-=======
 ![](https://j.gifs.com/jZoEJB.gif)
->>>>>>> dev
 
 ## Features
 - Multi-threading
@@ -36,35 +32,14 @@ $ pip3 install -r requirements.txt
 
 Example usage:
 ```
-<<<<<<< HEAD
-$ python3 dead_records.py -w subdomains.txt -o1 dead.txt -o2 cname.txt -t 2
-```
-=======
 $ python3 dead_records.py -w subdomains.txt -o1 dead.txt -o2 cname.txt
 ```
 
->>>>>>> dev
 This will return all output to stdout without saving it.
 
 Help: `$ python3 dead_records.py -h`
 
-<<<<<<< HEAD
-To check progress do `tail -f dead-temp.txt` and `tail -f cname-temp.txt`
-
-## Current version:
-### **1.2**
-
-## What's new?
-
-> Better UI
-
-> Concurrent multithreading
-
-> Fixed bugs
-
-> Custom number of threads
-=======
 To check progess do `tail -f dead-temp.txt` and `tail -f cname-temp.txt`
->>>>>>> dev
 
 ## Made with :heart: by [DreyAnd](https://github.com/DreyAnd) and [inc0gnit0](https://github.com/iinc0gnit0)
+
