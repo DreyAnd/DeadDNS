@@ -10,6 +10,7 @@ import pathlib
 from time import sleep
 from termcolor import colored, cprint
 from concurrent.futures import ThreadPoolExecutor
+from shlex import quote
 
 # Banner
 def banner():
@@ -66,7 +67,7 @@ def filter_dns(wordz):
 def dead_check(subz):
     global show_dead
     for s in subz:
-        cmd = "host " + s
+        cmd = "host " + quote(s)
         p = p = subprocess.Popen([cmd], stdout=subprocess.PIPE, shell=True)
         dead = p.stdout.read()
 
@@ -94,7 +95,7 @@ def dead_check(subz):
 # Make temp file
 def CNAME_check(deadz):
     for d in deadz:
-        cmd = "dig CNAME +short " + d
+        cmd = "dig CNAME +short " + quote(d)
         p = subprocess.Popen([cmd], stdout=subprocess.PIPE, shell=True)
         check = p.stdout.read()
 
