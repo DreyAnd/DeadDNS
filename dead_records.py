@@ -108,7 +108,7 @@ def CNAME_check(deadz):
             cnamez = str(d) + " --> " + check.decode() + "\n"
             write_cname.write(cnamez)
 
-        exist_check = pathlib.Path("cname-temp.txt")
+    exist_check = pathlib.Path("cname-temp.txt")
     if exist_check.exists() == True:
         pass
     else:
