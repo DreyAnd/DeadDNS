@@ -51,7 +51,7 @@ def args():
     else:
         threads = int(args.threads.rstrip())
 
-# filter_dns
+# Filter dns records 
 def filter_dns(wordz):
     filtration = str(wordz)
     filt = "b'|Host|not found:|3|NXDOMAIN|\\n"
@@ -60,15 +60,15 @@ def filter_dns(wordz):
     filt3 = filt2.replace('[" ', '').replace('"]', "")
     filt4 = filt3.replace("\\n'", "")
     formatted  = filt4.replace("\\", "\n").replace(" ", "")
+    
+    return formatted 
 
-    return formatted
-
-# Find dead dns
+# Find dead DNS records
 def dead_check(subz):
     global show_dead
     for s in subz:
-        cmd = "host " + quote(s)
-        p = p = subprocess.Popen([cmd], stdout=subprocess.PIPE, shell=True)
+        cmd = "host " + quote(s).replace("\n", "");
+        p = subprocess.Popen([cmd], stdout=subprocess.PIPE, shell=True)
         dead = p.stdout.read()
 
         if "not found" in str(dead):
@@ -92,10 +92,10 @@ def dead_check(subz):
 
     return show_dead
 
-# Make temp file
+# Check for CNAME's inside dead records
 def CNAME_check(deadz):
     for d in deadz:
-        cmd = "dig CNAME +short " + quote(d)
+        cmd = "dig CNAME +short " + quote(d).replace("\n","")
         p = subprocess.Popen([cmd], stdout=subprocess.PIPE, shell=True)
         check = p.stdout.read()
 
@@ -115,6 +115,7 @@ def CNAME_check(deadz):
         print("\033[91mNO CNAME'S FOUND :(")
         sys.exit(1)
 
+# Output
 def output():
     if len(sys.argv) > 4:
         o1 = sys.argv[4]
@@ -129,7 +130,7 @@ def output():
     dead.pop()
     CNAME_check(dead)
 
-# write to temp file
+# Write to temp file
 def writeTemp():
     if len(sys.argv) > 5:
         o2 = sys.argv[6]
@@ -139,15 +140,18 @@ def writeTemp():
 
     os.remove("cname-temp.txt")
 
+#Multithreadz
 def multithread():
     executor = ThreadPoolExecutor(threads)
     future = executor.submit(dead_check, subdomains_file)
     print(future.result())
 
+#Informationz
 def info():
     print("\033[1m\033[95m\033[4mSEARCHING FOR DEAD DNS RECORDS: \033[00m\n")
     print("\033[93m[-_-] Please sit back and grab a caffe, this might take a bit depending on the file size.\033[00m\n")
 
+#Start from here
 def main():
     args()
     banner()
